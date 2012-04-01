@@ -1,0 +1,14 @@
+import re
+import os
+os.system("mkdir w2pLayouts")
+os.chdir("w2pLayouts")
+os.system("wget http://web2py.com/layouts")
+fp=open("layouts",'r')
+allData=fp.read()
+ans=re.findall('\"/layouts/static/.*?\.w2p\"',allData)
+cnt=1
+for i in ans :
+	os.system("wget http://www.web2py.com"+i[1:-1])
+	print("wget http://www.web2py.com"+i[1:-1])
+fp.close()
+os.system("rm layouts")
